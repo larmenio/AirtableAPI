@@ -49,16 +49,16 @@ class AirtableData:
         # read data with json package
         response_info = json.loads(response)
         print(response_info)
-        names = []
+        urls_dic = []
         # Lê dicionario(nested) e trata erro quando chave não existe
         for record_values in response_info.values():
             for value in record_values:
                 try:
-                    name1 = value["fields"]["Name"]
+                    urls = value["fields"]["URL"]
                 except KeyError:
                     continue
-                names.append(name1)
-        return names
+                urls_dic.append(urls)
+        return urls_dic
 
 
 # Enter data to Airtable
